@@ -11,14 +11,16 @@ const Header: React.FC = () => {
   return (
     <header className="relative flex justify-between items-center bg-white rounded-xl shadow-lg mx-2 px-4 py-2">
       <div className="w-1/3 flex justify-start">
-        <Image
-          src={asyncImage}
-          alt="Async Programming Image"
-          style={{
-            maxWidth: "30%",
-            height: "auto",
-          }}
-        />
+        <Link href="/">
+          <Image
+            src={asyncImage}
+            alt="Async Programming Image"
+            style={{
+              maxWidth: "30%",
+              height: "auto",
+            }}
+          />
+        </Link>
       </div>
       {/* Mobile toggle button */}
       <button
