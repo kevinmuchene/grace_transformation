@@ -1,13 +1,25 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import asyncImage from "../../public/asyncImage.webp";
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="relative flex justify-between items-center bg-white rounded-xl shadow-lg py-3 w-full">
+    <header className="relative flex justify-between items-center bg-white rounded-xl shadow-lg mx-2 px-4 py-2">
+      <div className="w-1/3 flex justify-start">
+        <Image
+          src={asyncImage}
+          alt="Async Programming Image"
+          style={{
+            maxWidth: "30%",
+            height: "auto",
+          }}
+        />
+      </div>
       {/* Mobile toggle button */}
       <button
         className="md:hidden text-blue-700 hover:text-blue-900 focus:outline-none z-10 p-1 "
@@ -31,7 +43,7 @@ const Header: React.FC = () => {
       <nav
         className={`${
           isOpen ? "block" : "hidden"
-        } absolute md:static top-full left-0 m-2 rounded-lg bg-gray-400 md:bg-transparent w-full md:flex md:justify-center md:items-center md:space-x-8 mt-2 md:mt-0 z-20`}
+        } absolute md:static top-full left-0 m-2 rounded-lg bg-gray-400 md:bg-transparent w-full md:flex md:justify-end md:space-x-8 mt-2 md:mt-0 z-20`}
       >
         <Link
           href="/message"
