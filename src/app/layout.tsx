@@ -33,7 +33,10 @@ export default function RootLayout({
       >
         <div className="min-h-screen flex flex-col justify-between pt-0 md:pt-8 bg-white text-gray-900">
           <Header />
-          <main className="max-w-[120ch] mx-auto w-full space-y-6 flex flex-col ">
+          {/* <main className="max-w-[120ch] mx-auto w-full space-y-6 flex flex-col ">
+            {children}
+          </main> */}
+           <main className="mx-auto w-full space-y-6 flex flex-col ">
             {children}
           </main>
         </div>
