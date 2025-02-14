@@ -1,12 +1,20 @@
+import Link from "next/link";
+
 function Footer() {
   return (
     <footer className="bg-gray-500">
       <div className="max-w-[120ch] mx-auto w-full">
         <section className="flex flex-col md:flex-row md:justify-between">
           <div className="flex flex-col gap-10 p-3">
-            <p className="text-lg md:text-2xl w-full text-white">Messages</p>
-            <p className="text-lg md:text-2xl w-full text-white">Sermon</p>
-            <p className="text-lg md:text-2xl w-full text-white">Give</p>
+            <Link href="/message">
+              <p className="text-lg md:text-2xl w-full text-white">Messages</p>
+            </Link>
+            <Link href="/contact">
+              <p className="text-lg md:text-2xl w-full text-white">Contact</p>
+            </Link>
+            <Link href="/give">
+              <p className="text-lg md:text-2xl w-full text-white">Give</p>
+            </Link>
           </div>
           <div className="my-2 p-3">
             <p className="text-3xl text-white">Map</p>
