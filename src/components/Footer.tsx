@@ -1,25 +1,29 @@
 import Link from "next/link";
+import MapComponent from "./MapComponent";
 
 function Footer() {
   return (
     <footer className="bg-gray-500">
       <div className="max-w-[120ch] mx-auto w-full">
-        <section className="flex flex-col md:flex-row md:justify-between">
-          <div className="flex flex-col gap-10 p-3">
-            <Link href="/message">
-              <p className="text-lg md:text-2xl w-full text-white">Messages</p>
-            </Link>
-            <Link href="/contact">
-              <p className="text-lg md:text-2xl w-full text-white">Contact</p>
-            </Link>
-            <Link href="/give">
-              <p className="text-lg md:text-2xl w-full text-white">Give</p>
-            </Link>
+        <section className="flex flex-col md:flex-row gap-2">
+          <div className="flex flex-col gap-10 p-3 md:flex-[1] w-full md:w-1/4 items-center justify-center">
+            <p className="text-lg md:text-2xl w-full text-white text-center">
+              <Link href="/message">Messages</Link>
+            </p>
+
+            <p className="text-lg md:text-2xl w-full text-white text-center">
+              <Link href="/contact">Contact</Link>
+            </p>
+
+            <p className="text-lg md:text-2xl w-full text-white text-center">
+              <Link href="/give">Give</Link>
+            </p>
           </div>
-          <div className="my-2 p-3">
-            <p className="text-3xl text-white">Map</p>
+          <div className="my-2 p-3 md:flex-[3] w-full md:w-3/4">
+            <MapComponent />
           </div>
         </section>
+
         <section className="flex flex-col gap-5">
           <div className="text-center text-lg md:text-2xl w-full p-6">
             <p className="text-white">Service Time: 11:00AM</p>
