@@ -24,7 +24,9 @@ function FormControlMessagePage({
           mb: 2,
         }}
       >
-        <FormControl sx={{ mb: 2 }}>
+        <FormControl
+          sx={{ mb: 2, width: { xs: "100%", sm: "300px", md: "400px" } }}
+        >
           <InputLabel id="speaker-select-label">Speaker</InputLabel>
           <Select
             labelId="speaker-select-label"
