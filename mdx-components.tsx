@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React, { ComponentPropsWithoutRef } from "react";
+import { highlight } from "sugar-high";
 
 type HeadingProps = ComponentPropsWithoutRef<"h1">;
 type ParagraphProps = ComponentPropsWithoutRef<"p">;
@@ -25,6 +26,16 @@ const components = {
   p: (props: ParagraphProps) => (
     <p className="text-gray-800 leading-loose p-2" {...props} />
   ),
+  code: ({ children, ...props }: ComponentPropsWithoutRef<"code">) => {
+    const codeHTML = highlight(children as string);
+    return (
+      <code
+        className="p-1 text-blue-700"
+        dangerouslySetInnerHTML={{ __html: codeHTML }}
+        {...props}
+      />
+    );
+  },
   ol: (props: ListProps) => (
     <ol
       className="text-gray-800 list-decimal pl-5 space-y-2 leading-loose"
