@@ -3,7 +3,7 @@ import React from "react";
 function Give() {
   return (
     <div className="min-h-[50vh] flex flex-col items-center justify-center p-6 ">
-      <p className="font-extrabold text-xl md:text-4xl">Give</p>
+      <p className="font-extrabold text-xl md:text-3xl">Give</p>
       <div
         className="p-4 md:p-8 md:text-center flex flex-col md:gap-20"
        

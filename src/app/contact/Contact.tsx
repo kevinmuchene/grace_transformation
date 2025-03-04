@@ -4,7 +4,7 @@ import React from "react";
 function Contact() {
   return (
     <>
-      <p className="text-xl md:text-4xl text-center font-extrabold">Contact</p>
+      <p className="text-xl md:text-3xl text-center font-extrabold mt-10">Contact</p>
       <div className=" flex items-center justify-center p-6 bg-white">
         <main className="flex flex-col gap-7 md:flex-row items-center space-x-8 max-w-[120ch] mx-auto w-full justify-around">
           <section className="flex items-center justify-center w-full">

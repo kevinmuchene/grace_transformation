@@ -9,7 +9,7 @@ function page() {
   return (
     <>
       <div className="flex justify-center">
-        <h1 className="font-mono text-3xl">Sermons</h1>
+        <h1 className="font-mono text-2xl md:text-3xl mt-10">Sermons</h1>
       </div>
       <NoSSR />
     </>
