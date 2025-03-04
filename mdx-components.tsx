@@ -17,20 +17,20 @@ const components = {
     />
   ),
   h2: (props: HeadingProps) => (
-    <h2 className="text-gray-800 font-bold mt-8 mb-2 p-2" {...props} />
+    <h2 className="text-gray-800 font-bold mt-8 mb-2 p-2 text-2xl" {...props} />
   ),
   h3: (props: HeadingProps) => (
     <h3 className="text-gray-800 font-bold mt-8 mb-3" {...props} />
   ),
   h4: (props: HeadingProps) => <h4 className="font-bold" {...props} />,
   p: (props: ParagraphProps) => (
-    <p className="text-gray-800 leading-loose p-2" {...props} />
+    <p className="text-gray-800 leading-loose p-2 text-lg" {...props} />
   ),
   code: ({ children, ...props }: ComponentPropsWithoutRef<"code">) => {
     const codeHTML = highlight(children as string);
     return (
       <code
-        className="p-1 text-blue-700"
+        className="p-1 text-blue-700 italic"
         dangerouslySetInnerHTML={{ __html: codeHTML }}
         {...props}
       />
@@ -38,13 +38,13 @@ const components = {
   },
   ol: (props: ListProps) => (
     <ol
-      className="text-gray-800 list-decimal pl-5 space-y-2 leading-loose"
+      className="text-gray-800 list-decimal pl-5 space-y-2 leading-loose text-lg"
       {...props}
     />
   ),
   ul: (props: ListProps) => (
     <ul
-      className="text-gray-800 list-disc pl-5 space-y-1 leading-loose"
+      className="text-gray-800 list-disc pl-5 space-y-1 leading-loose text-lg"
       {...props}
     />
   ),
