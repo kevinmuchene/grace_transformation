@@ -94,7 +94,7 @@ export default function MessageLandingPage() {
                         const value = row[column.id];
                         return (
                           <TableCell key={column.id} align={column.align}>
-                            <Link href={`message${row.date}`}>
+                            <Link href={`message/${row.date}`}>
                               <span className="text-xs md:text-lg">
                                 {value}
                               </span>
