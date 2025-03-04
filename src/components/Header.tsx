@@ -3,23 +3,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import asyncImage from "../../public/asyncImage.webp";
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="relative flex justify-between items-center bg-white rounded-xl shadow-lg mx-2 px-4 py-2">
+    <header className="relative flex justify-between items-center bg-white mx-2 px-4 py-2">
       <div className="w-1/3 flex justify-start">
         <Link href="/">
-          <Image
-            src={asyncImage}
-            alt="Async Programming Image"
-            style={{
-              maxWidth: "30%",
-              height: "auto",
-            }}
-          />
+          <h1 className="text-2xl italic font-extrabold">Grace Connect Transformation</h1>
         </Link>
       </div>
       {/* Mobile toggle button */}
