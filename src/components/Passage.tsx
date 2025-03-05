@@ -4,6 +4,7 @@ import React from "react";
 import DOMPurify from "dompurify";
 import PassageError from "./PassageError";
 import { useFetchBiblePassage } from "@/hooks/useFetchBiblePassage";
+import CopyrightPopover from "./CopyrightPopover";
 
 const Passage = ({
   passageId,
@@ -12,7 +13,7 @@ const Passage = ({
   passageId: string;
   reading: string;
 }) => {
-  const { passage, loading, error, bibleId, debouncedSetBibleId } =
+  const { passage, copyrightContent, loading, error, bibleId, debouncedSetBibleId } =
     useFetchBiblePassage(passageId);
 
   if (error) {
@@ -52,6 +53,9 @@ const Passage = ({
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(passage) }}
         />
       )}
+      <section className="flex justify-center">
+      <CopyrightPopover copyright={copyrightContent}/>
+      </section>
     </div>
   );
 };

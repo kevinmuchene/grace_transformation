@@ -13,6 +13,7 @@ export const useFetchBiblePassage = (passageId: string) => {
   const [passage, setPassage] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [copyrightContent, setCopyrightContent] = useState("");
 
   const fetchPassage = (bibleId: string) => {
     setLoading(true);
@@ -26,7 +27,10 @@ export const useFetchBiblePassage = (passageId: string) => {
           },
         }
       )
-      .then((data) => setPassage(data.data.data.content))
+      .then((data) => {
+        setCopyrightContent(data.data.data.copyright);
+        setPassage(data.data.data.content);
+      })
       .catch(() => setError(true))
       .finally(() => setLoading(false));
   };
@@ -52,6 +56,7 @@ export const useFetchBiblePassage = (passageId: string) => {
 
   return {
     passage,
+    copyrightContent,
     loading,
     error,
     bibleId,
