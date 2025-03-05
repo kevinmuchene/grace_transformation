@@ -13,8 +13,15 @@ const Passage = ({
   passageId: string;
   reading: string;
 }) => {
-  const { passage, copyrightContent, loading, error, bibleId, debouncedSetBibleId } =
-    useFetchBiblePassage(passageId);
+  const {
+    passage,
+    copyrightContent,
+    fumsScript,
+    loading,
+    error,
+    bibleId,
+    debouncedSetBibleId,
+  } = useFetchBiblePassage(passageId);
 
   if (error) {
     return <PassageError />;
@@ -54,8 +61,13 @@ const Passage = ({
         />
       )}
       <section className="flex justify-center">
-      <CopyrightPopover copyright={copyrightContent}/>
+        <CopyrightPopover copyright={copyrightContent} />
       </section>
+      {fumsScript && (
+        <div
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(fumsScript) }}
+        />
+      )}
     </div>
   );
 };

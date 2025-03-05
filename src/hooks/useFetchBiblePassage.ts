@@ -15,6 +15,7 @@ export const useFetchBiblePassage = (passageId: string) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [copyrightContent, setCopyrightContent] = useState("");
+  const [fumsScript, setFumsScript] = useState<string>("");
 
   const fetchPassage = (bibleId: string) => {
     if (!isValidVerseCount(passageId)) {
@@ -32,10 +33,11 @@ export const useFetchBiblePassage = (passageId: string) => {
           },
         }
       )
-      .then((data) => {
+      .then((response) => {
         setError(false);
-        setCopyrightContent(data.data.data.copyright);
-        setPassage(data.data.data.content);
+        setCopyrightContent(response.data.data.copyright);
+        setPassage(response.data.data.content);
+        setFumsScript(response.data.meta.fums);
       })
       .catch(() => setError(true))
       .finally(() => setLoading(false));
@@ -63,6 +65,7 @@ export const useFetchBiblePassage = (passageId: string) => {
   return {
     passage,
     copyrightContent,
+    fumsScript,
     loading,
     error,
     bibleId,
