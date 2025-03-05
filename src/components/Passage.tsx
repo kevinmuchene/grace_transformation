@@ -13,7 +13,7 @@ const Passage = ({
   passageId: string;
   reading: string;
 }) => {
-  const { passage, loading, error, bibleId, debouncedSetBibleId } =
+  const { passage, copyrightContent, loading, error, bibleId, debouncedSetBibleId } =
     useFetchBiblePassage(passageId);
 
   if (error) {
@@ -53,8 +53,8 @@ const Passage = ({
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(passage) }}
         />
       )}
-      <section className="flex justify-end">
-      <CopyrightPopover/>
+      <section className="flex justify-center">
+      <CopyrightPopover copyright={copyrightContent}/>
       </section>
     </div>
   );

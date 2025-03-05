@@ -1,10 +1,9 @@
 import * as React from "react";
 import Popover from "@mui/material/Popover";
-import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { CopyrightIcon } from "lucide-react";
 
-export default function CopyrightPopover() {
+export default function CopyrightPopover({copyright}: {copyright:string}) {
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
     null
   );
@@ -33,10 +32,10 @@ export default function CopyrightPopover() {
         onClose={handleClose}
         anchorOrigin={{
           vertical: "bottom",
-          horizontal: "left",
+          horizontal: "center",
         }}
       >
-        <Typography sx={{ p: 2 }}>The content of the Popover.</Typography>
+        <p className="text-sm p-2 italic">{copyright}</p>
       </Popover>
     </div>
   );
