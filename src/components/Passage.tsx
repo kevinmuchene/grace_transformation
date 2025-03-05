@@ -4,6 +4,7 @@ import React from "react";
 import DOMPurify from "dompurify";
 import PassageError from "./PassageError";
 import { useFetchBiblePassage } from "@/hooks/useFetchBiblePassage";
+import CopyrightPopover from "./CopyrightPopover";
 
 const Passage = ({
   passageId,
@@ -52,6 +53,9 @@ const Passage = ({
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(passage) }}
         />
       )}
+      <section className="flex justify-end">
+      <CopyrightPopover/>
+      </section>
     </div>
   );
 };
