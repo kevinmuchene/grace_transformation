@@ -1,3 +1,4 @@
+import { isValidVerseCount } from "@/utils/ValidVerseCount";
 import axios from "axios";
 import { debounce, throttle } from "lodash";
 import { useCallback, useEffect, useState } from "react";
@@ -16,6 +17,10 @@ export const useFetchBiblePassage = (passageId: string) => {
   const [copyrightContent, setCopyrightContent] = useState("");
 
   const fetchPassage = (bibleId: string) => {
+    if (!isValidVerseCount(passageId)) {
+      setError(true);
+      return;
+    }
     setLoading(true);
 
     axios
@@ -28,6 +33,7 @@ export const useFetchBiblePassage = (passageId: string) => {
         }
       )
       .then((data) => {
+        setError(false);
         setCopyrightContent(data.data.data.copyright);
         setPassage(data.data.data.content);
       })
