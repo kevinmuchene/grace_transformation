@@ -11,7 +11,9 @@ const Header: React.FC = () => {
     <header className="relative flex justify-between items-center bg-white rounded-xl shadow-lg mx-2 px-4 py-2">
       <div className="w-1/3 flex justify-start">
         <Link href="/">
-          <h1 className="text-sm md:text-2xl italic font-extrabold">Grace Connect Transformation</h1>
+          <h1 className="text-sm md:text-2xl italic font-extrabold">
+            Grace Connect Transformation
+          </h1>
         </Link>
       </div>
       {/* Mobile toggle button */}
@@ -41,20 +43,20 @@ const Header: React.FC = () => {
       >
         <Link
           href="/message"
-          className="block text-black hover:text-gray-800 md:py-0 py-2 px-4 md:px-0 text-lg"
+          className="block text-black hover:text-gray-800 md:py-0 py-2 px-4 md:px-0 text-lg font-black"
         >
           Message
         </Link>
 
         <Link
           href="/contact"
-          className="block text-black hover:text-gray-800 md:py-0 py-2 px-4 md:px-0 text-lg"
+          className="block text-black hover:text-gray-800 md:py-0 py-2 px-4 md:px-0 text-lg font-black"
         >
           Contact
         </Link>
         <Link
           href="/give"
-          className="block text-black hover:text-gray-800 md:py-0 py-2 px-4 md:px-0 text-lg"
+          className="block text-black hover:text-gray-800 md:py-0 py-2 px-4 md:px-0 text-lg font-black"
         >
           Give
         </Link>

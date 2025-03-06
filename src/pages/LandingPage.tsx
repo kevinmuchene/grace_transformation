@@ -3,7 +3,7 @@ import React from "react";
 function LandingPage() {
   return (
     <div
-      className="bg-[url('/blackimg.webp')] bg-cover bg-center grid grid-rows-[20px_1fr_20px] md:items-center justify-items-center min-h-screen p-8 sm:p-20 font-[family-name:var(--font-geist-sans)]"
+      className="bg-stone-500 grid grid-rows-[20px_1fr_20px] md:items-center justify-items-center min-h-screen p-8 sm:p-20 font-[family-name:var(--font-geist-sans)]"
     >
       <main
         className="flex flex-col gap-10 row-start-2 items-center sm:items-start"

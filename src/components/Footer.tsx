@@ -3,7 +3,7 @@ import MapComponent from "./MapComponent";
 
 function Footer() {
   return (
-    <footer className="bg-gray-500">
+    <footer className="bg-black">
       <div className="max-w-[120ch] mx-auto w-full">
         <section className="flex flex-col md:flex-row gap-2">
           <div className="flex flex-col gap-10 p-3 md:flex-[1] w-full md:w-1/4 items-center justify-center">
