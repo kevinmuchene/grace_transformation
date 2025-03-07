@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import DOMPurify from "dompurify";
 import PassageError from "./PassageError";
 import { useFetchBiblePassage } from "@/hooks/useFetchBiblePassage";
 import CopyrightPopover from "./CopyrightPopover";
@@ -57,7 +56,7 @@ const Passage = ({
       ) : (
         <div
           className="scripture-styles p-3 text-blue-400"
-          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(passage) }}
+          dangerouslySetInnerHTML={{ __html: passage }}
         />
       )}
       <section className="flex justify-center">
@@ -65,7 +64,7 @@ const Passage = ({
       </section>
       {fumsScript && (
         <div
-          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(fumsScript) }}
+          dangerouslySetInnerHTML={{ __html: fumsScript }}
         />
       )}
     </div>
