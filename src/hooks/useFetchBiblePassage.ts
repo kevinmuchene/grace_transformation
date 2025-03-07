@@ -1,7 +1,7 @@
 import { isValidVerseCount } from "@/utils/ValidVerseCount";
 import axios from "axios";
 import { debounce, throttle } from "lodash";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 const API_KEY = process.env.NEXT_PUBLIC_BIBLE_API_KEY;
 
@@ -43,13 +43,25 @@ export const useFetchBiblePassage = (passageId: string) => {
       .finally(() => setLoading(false));
   };
 
-  // (1 request per 4 seconds)
+  // // (1 request per 4 seconds)
+  // const throttledFetch = useCallback(throttle(fetchPassage, 4000), []);
+
+  // // Debounce user selection change (wait 500ms before updating state)
+  // const debouncedSetBibleId = useCallback(
+  //   debounce((newVersion: string) => {
+  //     localStorage.setItem("bibleVersion", newVersion); // Save to localStorage
+  //     setBibleId(newVersion);
+  //   }, 500),
+  //   []
+  // );
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const throttledFetch = useCallback(throttle(fetchPassage, 4000), []);
 
-  // Debounce user selection change (wait 500ms before updating state)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedSetBibleId = useCallback(
     debounce((newVersion: string) => {
-      localStorage.setItem("bibleVersion", newVersion); // Save to localStorage
+      localStorage.setItem("bibleVersion", newVersion);
       setBibleId(newVersion);
     }, 500),
     []
