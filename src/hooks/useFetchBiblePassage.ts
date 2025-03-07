@@ -1,15 +1,21 @@
 import { isValidVerseCount } from "@/utils/ValidVerseCount";
 import axios from "axios";
 import { debounce, throttle } from "lodash";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const API_KEY = process.env.NEXT_PUBLIC_BIBLE_API_KEY;
 
 export const useFetchBiblePassage = (passageId: string) => {
   // Load Bible version from localStorage (default to NIV)
-  const [bibleId, setBibleId] = useState(
-    localStorage.getItem("bibleVersion") || "de4e12af7f28f599-02"
-  );
+
+  const [bibleId, setBibleId] = useState("de4e12af7f28f599-02");
+
+  useEffect(() => {
+    const storedVersion = localStorage.getItem("bibleVersion");
+    if (storedVersion) {
+      setBibleId(storedVersion);
+    }
+  }, []);
 
   const [passage, setPassage] = useState("");
   const [loading, setLoading] = useState(false);
