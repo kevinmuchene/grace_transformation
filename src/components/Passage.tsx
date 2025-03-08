@@ -12,22 +12,15 @@ const Passage = ({
   passageId: string;
   reading: string;
 }) => {
-  const {
-    passage,
-    copyrightContent,
-    fumsScript,
-    loading,
-    error,
-    bibleId,
-    debouncedSetBibleId,
-  } = useFetchBiblePassage(passageId);
+  const { apiContent, loading, error, bibleId, debouncedSetBibleId } =
+    useFetchBiblePassage(passageId);
 
   if (error) {
     return <PassageError />;
   }
 
   return (
-    <div className="mt-3 mb-3 pt-2 pr-4 pb-7 pl-4 md:pr-15 md:pb-15 md:pl-15 md:pt-7 md:my-10 rounded-xl shadow-md bg-black">
+    <div className="mt-3 mb-3 pt-2 pr-4 pb-7 pl-4 md:pr-15 md:pb-15 md:pl-15 md:pt-7 md:my-10 rounded-xl shadow-md bg-slate-100">
       <main className="flex justify-end p-3">
         <section className="flex items-center justify-center gap-3 bg-slate-100 shadow-md rounded-2xl p-4 max-w-md">
           <h2 className="text-sm md:text-lg">Select Bible Version:</h2>
@@ -55,17 +48,15 @@ const Passage = ({
         </p>
       ) : (
         <div
-          className="scripture-styles p-3 text-white"
-          dangerouslySetInnerHTML={{ __html: passage }}
+          className="scripture-styles p-3 text-black font-semibold"
+          dangerouslySetInnerHTML={{ __html: apiContent.content }}
         />
       )}
       <section className="flex justify-center">
-        <CopyrightPopover copyright={copyrightContent} />
+        <CopyrightPopover copyright={apiContent.copyright} />
       </section>
-      {fumsScript && (
-        <div
-          dangerouslySetInnerHTML={{ __html: fumsScript }}
-        />
+      {apiContent.fumsJs && (
+        <div dangerouslySetInnerHTML={{ __html: apiContent.fumsJs }} />
       )}
     </div>
   );
