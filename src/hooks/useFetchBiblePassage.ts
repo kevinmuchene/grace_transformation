@@ -1,4 +1,5 @@
 import { isValidVerseCount } from "@/utils/ValidVerseCount";
+import { ApiContent } from "@/utils/types";
 import axios from "axios";
 import { debounce, throttle } from "lodash";
 import { useCallback, useEffect, useState } from "react";
@@ -17,11 +18,14 @@ export const useFetchBiblePassage = (passageId: string) => {
     }
   }, []);
 
-  const [passage, setPassage] = useState("");
+  const [apiContent, setApiContent] = useState<ApiContent>({
+    content: "",
+    copyright: "",
+    fumsJs: "",
+  });
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [copyrightContent, setCopyrightContent] = useState("");
-  const [fumsScript, setFumsScript] = useState<string>("");
 
   const fetchPassage = (bibleId: string) => {
     if (!isValidVerseCount(passageId)) {
@@ -41,9 +45,11 @@ export const useFetchBiblePassage = (passageId: string) => {
       )
       .then((response) => {
         setError(false);
-        setCopyrightContent(response.data.data.copyright);
-        setPassage(response.data.data.content);
-        setFumsScript(response.data.meta.fums);
+        setApiContent({
+          content: response.data.data.content,
+          copyright: response.data.data.copyright,
+          fumsJs: response.data.meta.fums,
+        });
       })
       .catch(() => setError(true))
       .finally(() => setLoading(false));
@@ -81,9 +87,7 @@ export const useFetchBiblePassage = (passageId: string) => {
   }, [bibleId, throttledFetch]);
 
   return {
-    passage,
-    copyrightContent,
-    fumsScript,
+    apiContent,
     loading,
     error,
     bibleId,
